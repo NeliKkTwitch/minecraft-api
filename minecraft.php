@@ -6,10 +6,10 @@ header('Access-Control-Allow-Origin: *');
 $host = 'sql101.infinityfree.com';
 $dbname = 'if0_40372762_pokenelikk';
 $username = 'if0_40372762';
-$password = 'Palomallau59';
+$password = getenv('DB_PASSWORD');
 
 // CLÉ SECRÈTE - CHANGEZ-LA !
-define('API_KEY', 'Palomallau59');
+define('API_KEY', getenv('API_KEY'));
 
 // Vérifier la clé API
 if (!isset($_GET['key']) || $_GET['key'] !== API_KEY) {
@@ -102,4 +102,5 @@ switch ($action) {
         http_response_code(400);
         echo json_encode(['error' => 'Invalid action']);
 }
+
 ?>
